@@ -1,5 +1,6 @@
 package CarRentalSystem.UI_Layer;
 
+import CarRentalSystem.DAO_Layer.UserDAO;
 import CarRentalSystem.Session.SessionManager;
 
 import javax.swing.*;
@@ -140,24 +141,162 @@ public class ProfilePanel extends JPanel {
         );
 
 
-        // ===== Temporary Actions =====
+        // ===== Edit Profile Action =====
 
         editBtn.addActionListener(e -> {
 
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Edit Profile feature coming soon"
+            JTextField nameField =
+                    new JTextField(
+                            SessionManager.getCustomerName()
+                    );
+
+            JTextField emailField =
+                    new JTextField(
+                            SessionManager.getEmail()
+                    );
+
+            JTextField phoneField =
+                    new JTextField();
+
+
+            JPanel panel = new JPanel(
+                    new GridLayout(3, 2, 10, 10)
             );
+
+            panel.add(new JLabel("Full Name"));
+
+            panel.add(nameField);
+
+            panel.add(new JLabel("Email"));
+
+            panel.add(emailField);
+
+            panel.add(new JLabel("Phone"));
+
+            panel.add(phoneField);
+
+
+            int result =
+                    JOptionPane.showConfirmDialog(
+
+                            this,
+
+                            panel,
+
+                            "Edit Profile",
+
+                            JOptionPane.OK_CANCEL_OPTION
+
+                    );
+
+
+            if (result == JOptionPane.OK_OPTION) {
+
+                String newName =
+                        nameField.getText();
+
+                String newEmail =
+                        emailField.getText();
+
+                String newPhone =
+                        phoneField.getText();
+
+
+                UserDAO dao =
+                        new UserDAO();
+
+
+                boolean updated =
+                        dao.updateProfile(
+
+                                SessionManager.getCustomerId(),
+
+                                newName,
+
+                                newEmail,
+
+                                newPhone
+
+                        );
+
+
+                if (updated) {
+
+                    JOptionPane.showMessageDialog(
+
+                            this,
+
+                            "Profile Updated Successfully"
+
+                    );
+
+                }
+
+                else {
+
+                    JOptionPane.showMessageDialog(
+
+                            this,
+
+                            "Profile Update Failed"
+
+                    );
+
+                }
+
+            }
 
         });
 
+        // ===== Change Password Action =====
 
         passwordBtn.addActionListener(e -> {
 
-            JOptionPane.showMessageDialog(
-                    this,
-                    "Change Password feature coming soon"
-            );
+            String newPassword =
+                    JOptionPane.showInputDialog(
+                            this,
+                            "Enter New Password"
+                    );
+
+            if (newPassword == null
+                    || newPassword.trim().isEmpty()) {
+
+                return;
+
+            }
+
+
+            UserDAO dao =
+                    new UserDAO();
+
+
+            boolean updated =
+                    dao.changePassword(
+
+                            SessionManager.getCustomerId(),
+
+                            newPassword
+
+                    );
+
+
+            if (updated) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Password Changed Successfully"
+                );
+
+            }
+
+            else {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Failed To Change Password"
+                );
+
+            }
 
         });
 

@@ -220,5 +220,91 @@ public class UserDAO {
         return updated;
 
     }
+    public boolean changePassword(String customerId,
+                                  String newPassword) {
+
+        boolean updated = false;
+
+        try {
+
+            Connection conn =
+                    DBConnection.getConnection();
+
+            String query =
+                    "UPDATE customer " +
+                            "SET password = ? " +
+                            "WHERE customer_id = ?";
+
+            PreparedStatement ps =
+                    conn.prepareStatement(query);
+
+            ps.setString(1, newPassword);
+
+            ps.setString(2, customerId);
+
+            int rows =
+                    ps.executeUpdate();
+
+            updated = rows > 0;
+
+        }
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return updated;
+
+    }
+    public boolean updateProfile(String customerId,
+                                 String name,
+                                 String email,
+                                 String phone) {
+
+        boolean updated = false;
+
+        try {
+
+            Connection conn =
+                    DBConnection.getConnection();
+
+            String query =
+                    "UPDATE customer " +
+                            "SET customer_name = ?, " +
+                            "email = ?, " +
+                            "phone = ? " +
+                            "WHERE customer_id = ?";
+
+
+            PreparedStatement ps =
+                    conn.prepareStatement(query);
+
+            ps.setString(1, name);
+
+            ps.setString(2, email);
+
+            ps.setString(3, phone);
+
+            ps.setString(4, customerId);
+
+
+            int rows =
+                    ps.executeUpdate();
+
+            updated = rows > 0;
+
+        }
+
+        catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+        return updated;
+
+    }
 
 }

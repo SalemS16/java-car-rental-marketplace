@@ -7,8 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-       // new ViewCarsUI();
-       // new RentCarUI();
+       // new ViewCarsUI();R
        // new ReturnCarUI();
        // new DashboardUI();
        // new LoginUI();

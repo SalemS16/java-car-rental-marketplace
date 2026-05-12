@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="42.7">
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.7.8" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.7.8" />
+    </SOURCES>
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.7.8" recursive="false" />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/org/postgresql/postgresql/42.7.8" recursive="false" type="SOURCES" />
+  </library>
+</component>

@@ -221,6 +221,6 @@ WelcomeUI.java
 
 Salem Saudagar
 
-Java Developer | BE IT Student
+Java Developer 
 
 ---

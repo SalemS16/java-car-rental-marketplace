@@ -132,25 +132,6 @@ Availability Restored
 
 ---
 
-# Screenshots
-
-## Welcome Page
-(Add Screenshot Here)
-
-## Dashboard
-(Add Screenshot Here)
-
-## Rent Car Section
-(Add Screenshot Here)
-
-## Give Car On Rent
-(Add Screenshot Here)
-
-## Profile Section
-(Add Screenshot Here)
-
----
-
 # How To Run
 
 ## 1. Clone Repository
